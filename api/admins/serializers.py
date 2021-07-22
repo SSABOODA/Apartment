@@ -1,13 +1,9 @@
-from api.publics.models import Public
 from rest_framework import serializers
 
-from .models import Admin
-from api.publics.serializers import PublicSerializer 
+from api.publics.models import Public
 
-class AdminSerializer(serializers.ModelSerializer):
-    public = PublicSerializer(source='public_set', many=True)
+class PublicSerializer(serializers.ModelSerializer):
     
     class Meta:
-        model = Admin
+        model = Public
         fields = '__all__'
-

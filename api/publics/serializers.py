@@ -8,3 +8,10 @@ class PublicSerializer(serializers.ModelSerializer):
         model = Public
         fields = '__all__'
 
+
+class CheckCostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Public
+        fields = ['household_number', 'password']
+        
+
