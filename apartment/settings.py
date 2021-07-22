@@ -39,34 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
     'corsheaders',
-
+    'rest_framework',
     'api.admins',
     'api.publics',
-    
-    'rest_framework.authtoken',
-    'rest_framework',
-    
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-
-    'rest_auth',
-    'rest_auth.registration',
-
-    'django_filters',
-
 ]
-# AUTH_USER_MODEL = 'api.admins.Admin',
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
-    ],
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
-}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -171,8 +148,3 @@ CORS_ALLOW_HEADERS = (
     'x-csrftoken',
     'x-requested-with',
 )
-
-
-SITE_ID = 1
-ACCOUNT_EMAIL_VERIFICATION = 'none'
-ACCOUNT_EMAIL_REQUIRED = (True)

@@ -1,12 +1,7 @@
-from django.urls import include, path
-
-from .views import PublicListCreateView
-
-# router = routers.DefaultRouter()
-# router.register(r'', PublicViewSet)
+from django.contrib import admin
+from django.urls import path, include
 
 urlpatterns = [
-    path('/', PublicListCreateView.as_view()),
+    # path('', include('admins.urls')),
+    # path('', include('publics.urls')),
 ]
-
-
