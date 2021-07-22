@@ -1,7 +1,12 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import include, path
+
+from .views import PublicListCreateView
+
+# router = routers.DefaultRouter()
+# router.register(r'', PublicViewSet)
 
 urlpatterns = [
-    # path('', include('admins.urls')),
-    # path('', include('publics.urls')),
+    path('/', PublicListCreateView.as_view()),
 ]
+
+

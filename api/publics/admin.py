@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+# from publics.models import Public
+
+# admin.site.register(Public)
+
+
+
+
