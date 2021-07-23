@@ -1,0 +1,98 @@
+version: '3'
+services:
+  docker-mysql:
+    image: mysql
+    volumes:
+      - ./db_data:/var/lib/mysql:rw
+    environment:
+      - MYSQL_DATABASE=apartment
+      - MYSQL_USER=roots
+      - MYSQL_PASSWORD=bong2
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+    ports:
+      - 3306:3306
+    command:
+      - --default-authentication-plugin=mysql_native_password
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+  docker-django:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment: 
+      - DJANGO_DB_HOST=docker-mysql
+      - DJANGO_DB_PORT=3306
+      - DJANGO_DB_NAME=apartment
+      - DJANGO_DB_USERNAME=root
+      - DJANGO_DB_PASSWORD=bong2
+    ports:
+      - 8000:8000
+    command: >-
+      sh -c 'python manage.py migrate &&
+          python manage.py runserver 0:8000'
+    volumes:
+      - .:/usr/src/app
+    restart: always
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# version: '3'
+# services:
+#   db:
+#     image: mysql
+#     volumes:
+#       - ./db_data:/var/lib/mysql:rw
+#     environment:
+#       - MYSQL_PASSWORD=bong2
+#       - MYSQL_USER=roots
+#       - MYSQL_DATABASE=apartment
+#       - MYSQL_ALLOW_EMPTY_PASSWORD=1
+#     command:
+#       - --default-authentication-plugin=mysql_native_password
+#       - --character-set-server=utf8mb4
+#       - --collation-server=utf8mb4_unicode_ci    
+#     ports: 
+#       - 3306:3306
+
+#   docker-django:
+#     build:
+#       context: .
+#       dockerfile: ./Dockerfile
+#     restart: always  
+#     volumes:
+#       - .:/usr/src/app
+#     command: >-
+#       sh -c 'python manage.py migrate &&
+#           python manage.py runserver 0:8000'      
+#     environment:
+#       - DJANGO_DB_HOST=db
+#       - DJANGO_DB_NAME=apartment  
+#       - DJANGO_DB_PASSWORD=bong2
+#       - DJANGO_DB_USER=root
+#       - DJANGO_DB_PORT=3306  
+    
+#     ports:
+#       - 8000:8000

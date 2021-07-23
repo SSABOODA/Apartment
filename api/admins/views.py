@@ -11,7 +11,7 @@ class PublicCostListView(generics.ListCreateAPIView):
     queryset = Public.objects.all()
     serializer_class = PublicSerializer
 
-    permission_classes = [IsAdminUser]
+    permission_classes = [IsAuthenticated]
 
 class PublicCostDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Public.objects.all()
