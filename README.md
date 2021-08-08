@@ -8,7 +8,6 @@
 
 > Environment
 <!-- 실행환경에 대해 작성하면 된다. OS나 컴파일러 혹은 Hardware와 관련된 환경을 작성하면 된다. Multicore 환경에서 돌아가는 프로그램이라면 CPU나 RAM 같은 것들을 작성해도 좋다. -->
-- mac OS
 - Python 3.8
 - Django rest framework
 - Conda
